@@ -1,0 +1,197 @@
+    <?php
+         function validateField($field){
+             global $requiredFields1;
+             global $requiredFields2;
+             global $requiredFields3;
+             global $requiredFields4;
+             global $requiredFields5;
+             
+             if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST[$field] === FALSE && (in_array($field, $requiredFields1) || in_array($field, $requiredFields2) || in_array($field, $requiredFields3) || in_array($field, $requiredFields4) || in_array($field, $requiredFields5))) {
+                 print("style=\"border-color: red\"");
+             }
+         }
+         
+         try {
+             
+             // Step 1 required fields
+             $requiredFields1 = array("firstname", "lastname", "address1", "county", "postcode", "dob", "mobile", "email", "ethnic_origin",);
+             // Step 2 required fields
+             $requiredFields2 = array("disabilities", "kin_name", "kin_relation", "kin_phone");
+             // Step 3 required fields
+             $requiredFields3 = array("current_school", "studying_alevel", "gcse1", "gcse2", "gcse3", "gcse4", "gcse5", "gcse_grade1", "gcse_grade2", "gcse_grade3", "gcse_grade4", "gcse_grade5", "gcse_resit");
+             // Step 4 required fields
+             $requiredFields4 = array();
+             // Step 5 required fields
+             $requiredFields5 = array("dec_read_rules", "dec_uos_discretion", "dec_sd_available", "dec_sd_read_guidance", "dec_parent_read_safeguarding", "dec_parent_accept_changes", "dec_photography_consent");
+             
+             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW);
+             $_GET = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW);
+             
+             $_POST["firstname"] = !empty($_POST["firstname"]) ? $_POST["firstname"] : false;
+             $_POST["lastname"] = !empty($_POST["lastname"]) ? $_POST["lastname"] : false;
+             $_POST["address1"] = !empty($_POST["address1"]) ? $_POST["address1"] : false;
+             $_POST["address2"] = !empty($_POST["address2"]) ? $_POST["address2"] : false;
+             $_POST["address3"] = !empty($_POST["address3"]) ? $_POST["address3"] : false;
+             $_POST["county"] = !empty($_POST["county"]) ? $_POST["county"] : false;
+             $_POST["postcode"] = !empty($_POST["postcode"]) ? $_POST["postcode"] : false;
+             $_POST["dob"] = !empty($_POST["dob"]) ? $_POST["dob"] : false;
+             $_POST["mobile"] = !empty($_POST["mobile"]) ? $_POST["mobile"] : false;
+             $_POST["email"] = !empty($_POST["email"]) ? $_POST["email"] : false;
+             $_POST["ethnic_origin"] = !empty($_POST["ethnic_origin"]) ? $_POST["ethnic_origin"] : false;
+             
+             
+             $_POST["disabilities"] = !empty($_POST["disabilities"]) ? $_POST["disabilities"] : false;
+             $_POST["disability_support"] = !empty($_POST["disability_support"]) ? $_POST["disability_support"] : false;
+             $_POST["dietary_req"] = !empty($_POST["dietary_req"]) ? $_POST["dietary_req"] : false;
+             $_POST["kin_name"] = !empty($_POST["kin_name"]) ? $_POST["kin_name"] : false;
+             $_POST["kin_relation"] = !empty($_POST["kin_relation"]) ? $_POST["kin_relation"] : false;
+             $_POST["kin_phone"] = !empty($_POST["kin_phone"]) ? $_POST["kin_phone"] : false;
+             
+             
+             $_POST["current_school"] = !empty($_POST["current_school"]) ? $_POST["current_school"] : false;
+             $_POST["school_obtained_gcse"] = !empty($_POST["school_obtained_gcse"]) ? $_POST["school_obtained_gcse"] : false;
+             $_POST["studying_alevel"] = !empty($_POST["studying_alevel"]) ? $_POST["studying_alevel"] : false;
+             $_POST["alevel_subjects"] = !empty($_POST["alevel_subjects"]) ? $_POST["alevel_subjects"] : false;
+             $_POST["non_alevel_subjects"] = !empty($_POST["non_alevel_subjects"]) ? $_POST["non_alevel_subjects"] : false;
+             $_POST["gcse1"] = !empty($_POST["gcse1"]) ? $_POST["gcse1"] : false;
+             $_POST["gcse2"] = !empty($_POST["gcse2"]) ? $_POST["gcse2"] : false;
+             $_POST["gcse3"] = !empty($_POST["gcse3"]) ? $_POST["gcse3"] : false;
+             $_POST["gcse4"] = !empty($_POST["gcse4"]) ? $_POST["gcse4"] : false;
+             $_POST["gcse5"] = !empty($_POST["gcse5"]) ? $_POST["gcse5"] : false;
+             $_POST["gcse6"] = !empty($_POST["gcse6"]) ? $_POST["gcse6"] : false;
+             $_POST["gcse7"] = !empty($_POST["gcse7"]) ? $_POST["gcse7"] : false;
+             $_POST["gcse8"] = !empty($_POST["gcse8"]) ? $_POST["gcse8"] : false;
+             $_POST["gcse9"] = !empty($_POST["gcse9"]) ? $_POST["gcse9"] : false;
+             $_POST["gcse10"] = !empty($_POST["gcse10"]) ? $_POST["gcse10"] : false;
+             $_POST["gcse11"] = !empty($_POST["gcse11"]) ? $_POST["gcse11"] : false;
+             $_POST["gcse12"] = !empty($_POST["gcse12"]) ? $_POST["gcse12"] : false;
+             $_POST["gcse13"] = !empty($_POST["gcse13"]) ? $_POST["gcse13"] : false;
+             $_POST["gcse_grade1"] = !empty($_POST["gcse_grade1"]) ? $_POST["gcse_grade1"] : false;
+             $_POST["gcse_grade2"] = !empty($_POST["gcse_grade2"]) ? $_POST["gcse_grade2"] : false;
+             $_POST["gcse_grade3"] = !empty($_POST["gcse_grade3"]) ? $_POST["gcse_grade3"] : false;
+             $_POST["gcse_grade4"] = !empty($_POST["gcse_grade4"]) ? $_POST["gcse_grade4"] : false;
+             $_POST["gcse_grade5"] = !empty($_POST["gcse_grade5"]) ? $_POST["gcse_grade5"] : false;
+             $_POST["gcse_grade6"] = !empty($_POST["gcse_grade6"]) ? $_POST["gcse_grade6"] : false;
+             $_POST["gcse_grade7"] = !empty($_POST["gcse_grade7"]) ? $_POST["gcse_grade7"] : false;
+             $_POST["gcse_grade8"] = !empty($_POST["gcse_grade8"]) ? $_POST["gcse_grade8"] : false;
+             $_POST["gcse_grade9"] = !empty($_POST["gcse_grade9"]) ? $_POST["gcse_grade9"] : false;
+             $_POST["gcse_grade10"] = !empty($_POST["gcse_grade10"]) ? $_POST["gcse_grade10"] : false;
+             $_POST["gcse_grade11"] = !empty($_POST["gcse_grade11"]) ? $_POST["gcse_grade11"] : false;
+             $_POST["gcse_grade12"] = !empty($_POST["gcse_grade12"]) ? $_POST["gcse_grade12"] : false;
+             $_POST["gcse_grade13"] = !empty($_POST["gcse_grade13"]) ? $_POST["gcse_grade13"] : false;
+             $_POST["gcse_resit"] = !empty($_POST["gcse_resit"]) ? $_POST["gcse_resit"] : false;
+             $_POST["gcse_resit_subjects"] = !empty($_POST["gcse_resit_subjects"]) ? $_POST["gcse_resit_subjects"] : false;
+             
+             
+             $_POST["further_info"] = !empty($_POST["further_info"]) ? $_POST["further_info"] : false;
+             $_POST["annual_income"] = !empty($_POST["annual_income"]) ? $_POST["annual_income"] : false;
+             $_POST["parents_level_studied"] = !empty($_POST["parents_level_studied"]) ? $_POST["parents_level_studied"] : false;
+             
+             
+             $_POST["dec_read_rules"] = !empty($_POST["dec_read_rules"]) ? $_POST["dec_read_rules"] : false;
+             $_POST["dec_uos_discretion"] = !empty($_POST["dec_uos_discretion"]) ? $_POST["dec_uos_discretion"] : false;
+             $_POST["dec_sd_available"] = !empty($_POST["dec_sd_available"]) ? $_POST["dec_sd_available"] : false;
+             $_POST["dec_sd_read_guidance"] = !empty($_POST["dec_sd_read_guidance"]) ? $_POST["dec_sd_read_guidance"] : false;
+             $_POST["dec_parent_accept_changes"] = !empty($_POST["dec_parent_accept_changes"]) ? $_POST["dec_parent_accept_changes"] : false;
+             $_POST["dec_photography_consent"] = !empty($_POST["dec_photography_consent"]) ? $_POST["dec_photography_consent"] :false;
+             $_POST["emailopt"] = !empty($_POST["emailopt"]) ? $_POST["emailopt"] : false;
+             $_POST["phoneopt"] = !empty($_POST["phoneopt"]) ? $_POST["phoneopt"] : false;
+             $_POST["textopt"] = !empty($_POST["textopt"]) ? $_POST["textopt"] : false;
+             $_POST["postopt"] = !empty($_POST["postopt"]) ? $_POST["postopt"] : false;
+             
+             $_SERVER['REQUEST_METHOD'] = isset($_SERVER['REQUEST_METHOD'] ) ? $_SERVER['REQUEST_METHOD'] :NULL;
+             
+             // Check whether the form has been submitted 
+             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                 
+                 // Valid data flag
+                 $valid = true;
+                 
+                 // Validate step 1 fields
+                 foreach ($requiredFields as $field) {
+                     if ($valid && !$_POST[$field]) {
+                         // Required field is empty
+                         $valid = false; ?>
+         <script>
+             $(document).ready(function(){
+                 var placeholder = document.getElementById('formsteps');
+                 placeholder.innerHTML += '<p style=\"color: red;\">Please complete the fields highlighted below:</p>';
+                 step1();
+             });
+         </script>
+         <?php break;
+                     }
+                 }
+                 // Validate step 2 fields
+                 foreach ($requiredFields2 as $field) {
+                     if ($valid && !$_POST[$field]) {
+                         // Required field is empty
+                         $valid = false; ?>
+         <script>
+         $(document).ready(function(){
+             var placeholder = document.getElementById('formsteps');
+             placeholder.innerHTML += '<p style=\"color: red;\">Please complete the fields highlighted below:</p>';
+             step2();
+         });
+         </script>
+         <?php break;
+                     }
+                 }
+                 
+                 // Validate step 3 fields
+                 foreach ($requiredFields as $field) {
+                     if ($valid && !_POST[$field]) {
+                         // Required field is empty
+                         $valid = false; ?>
+         <script>
+         $(document).ready(function(){
+             var placeholder = document.getElementById('formsteps');
+             placeholder.innerHTML += '<p style=\"color: red;\">Please complete the fields highlighted below:</p>';
+             step3();
+         });
+         </script>
+         <?php break;
+                     }
+                 }
+                 // Validate step 4 fields
+                 foreach ($requiredFields as $field) {
+                     if ($valid && !_POST[$field]) {
+                         //Required field is empty
+                         $valid = false; ?>
+         <script>
+         $(document).ready(function(){
+             var placeholder = document.getElementById('formsteps');
+             placeholder.innerHTML += '<p style=\"color: red;\">Please complete the fields highlighted below:</p>';
+             step4();
+         });
+         </script>
+         <?php break;
+                     }
+                 }
+                 // Validate step 5 fields
+                 foreach ($requiredFields as $field) {
+                     if ($valid && !$_POST[$field]) {
+                         // Required field id empty
+                         $valid = false; ?>
+         <script>
+         $(document).ready(function(){
+             var placeholder = document.getElementById('formsteps');
+             placeholder.innerHTML += '<p style=\"color: red;\">Please complete the fields highlighted below:</p>';
+             step5();
+         });
+         </script>
+         <?php break;
+                     }
+                 }
+             }
+             
+         }
+?>
+         
+         <?php if (isset($success)) { ?>
+         <script>
+         $(document).ready(function(){
+             $("#summerschool").hide();
+         });
+         </script>
+       <?php  } ?>
